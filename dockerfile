@@ -1,7 +1,5 @@
-FROM maven
+FROM openjdk:8
 
-WORKDIR /mavenpipelinetest
+COPY ./target/hello-world-1.0.1.jar app.jar
 
-COPY ./ .
-
-RUN mvn clean package
+ENTRYPOINT [ "java","-jar", "app.jar" ]
